@@ -1,0 +1,56 @@
+<%- include("partials/_header.ejs") -%>
+    <%- include("partials/_navbar.ejs") -%>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="mt-5">
+                    <h1>products</h1>
+                    <h2>products.ejs file</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere praesentium quasi vero corporis
+                        dolor
+                        vitae magnam ipsa, et minima blanditiis!</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row g-3">
+
+                <% for( let i of products ) { %>
+
+                    <div class="col-md-3">
+
+                        <div class="card">
+                            <img src="" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= i.name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= i.description %>
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <%= i.price %>
+                                </li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="/products/<%= i._id %>" class="card-link">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+            </div>
+        </div>
+
+
+
+
+
+
+        <%- include("partials/_footer.ejs") -%>

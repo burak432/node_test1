@@ -1,0 +1,41 @@
+<%- include("partials/_header.ejs") -%>
+    <%- include("partials/_navbar.ejs") -%>
+
+
+        <div class="container">
+            <div class="row">
+
+                <div class="mt-5">
+                    <h1>edit product</h1>
+                    <h2>editProduct.ejs file</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere praesentium quasi vero corporis
+                        dolor
+                        vitae magnam ipsa, et minima blanditiis!</p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <form action="/products/<%= product._id %>?_method=PUT" method="POST">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Enter description</label>
+                        <textarea class="form-control" id="description" name="description"
+                            rows="3"><%= product.description %></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Enter price</label>
+                        <input type="text" class="form-control" id="price" name="price" value="<%= product.price %>">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include("partials/_footer.ejs") -%>

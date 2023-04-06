@@ -1,0 +1,52 @@
+<%- include("partials/_header.ejs") -%>
+    <%- include("partials/_navbar.ejs") -%>
+
+
+        <div class="container">
+            <div class="row">
+
+                <div class="mt-5">
+                    <h1>show product</h1>
+                    <h2>showProduct.ejs file</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere praesentium quasi vero corporis
+                        dolor
+                        vitae magnam ipsa, et minima blanditiis!</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-4 mx-auto">
+
+                    <div class="card">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= showProduct.name %>
+                            </h5>
+                            <p class="card-text">
+                                <%= showProduct.description %>
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <%= showProduct.price %>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="/products/<%= showProduct._id %>/edit" class="card-link">Update</a>
+                            <a href="/products/<%= showProduct._id %>?_method=DELETE" class="card-link">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <%- include("partials/_footer.ejs") -%>
