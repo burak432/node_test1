@@ -2,24 +2,58 @@ const mongoose = require("mongoose");
 const Product = require("../models/Product");
 
 exports.newProduct = async (req, res) => {
-  const { name, description, price } = req.body;
-  const newProduct = await Product.create({ name, description, price });
-  res.redirect("/products");
+  try {
+    const { name, description, price } = req.body;
+    const newProduct = await Product.create({ name, description, price });
+    res.status(201).redirect("/products");
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      err,
+    });
+  }
 };
 
 exports.showProduct = async (req, res) => {
-  const id = req.params.id;
-  const showProduct = await Product.findById(id);
-  res.render("showProduct.ejs", { pageName: "products", showProduct });
+  try {
+    const id = req.params.id;
+    const showProduct = await Product.findById(id);
+    res
+      .status(200)
+      .render("showProduct.ejs", { pageName: "products", showProduct });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      err,
+    });
+  }
 };
 
 exports.putEditProduct = async (req, res) => {
-  const { name, description, price } = req.body;
-  await Product.findByIdAndUpdate(req.params.id, { name, description, price });
-  res.redirect("/products");
+  try {
+    const { name, description, price } = req.body;
+    await Product.findByIdAndUpdate(req.params.id, {
+      name,
+      description,
+      price,
+    });
+    res.status(200).redirect("/products");
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      err,
+    });
+  }
 };
 
 exports.deleteProduct = async (req, res) => {
-  await Product.findByIdAndDelete(req.params.id);
-  res.redirect("/products");
+  try {
+    await Product.findByIdAndDelete(req.params.id);
+    res.redirect("/products");
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      err,
+    });
+  }
 };
