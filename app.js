@@ -42,22 +42,23 @@ const productRoute = require("./routes/productRoute.js");
 ////////////////////routes////////////////////
 
 app.use("/", pageRoute);
+app.use("/products", productRoute);
 
-app.get("/products", pageRoute);
+// app.get("/products", pageRoute);
 
-app.get("/products/new", pageRoute);
+// app.get("/products/new", pageRoute);
 
-app.post("/products", productRoute);
+// app.post("/products", productRoute);
 
-app.get("/products/:id", productRoute);
+// app.get("/products/:id", productRoute);
 
-//edit product form
-app.get("/products/:id/edit", pageRoute);
+// //edit product form
+// app.get("/products/:id/edit", pageRoute);
 
-//edit product form handler
-app.put("/products/:id", productRoute);
+// //edit product form handler
+// app.put("/products/:id", productRoute);
 
-app.delete("/products/:id", productRoute);
+// app.delete("/products/:id", productRoute);
 
 //app listener
 const port = process.env.port || 3000;
