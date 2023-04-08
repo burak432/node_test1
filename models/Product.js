@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -18,6 +19,18 @@ const productSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  slug: {
+    type: String,
+    unique: true,
+  },
+});
+
+productSchema.pre("validate", function (next) {
+  this.slug = slugify(this.name, {
+    lowercase: true,
+    strict: true,
+  });
+  next();
 });
 
 const Product = mongoose.model("Product", productSchema);

@@ -33,7 +33,7 @@ const methodOverride = require("method-override");
 app.use(methodOverride("_method", { methods: ["POST", "GET"] }));
 
 //mvc
-const pageController = require("./controllers/pageController.js");
+// const pageController = require("./controllers/pageController.js");
 
 //routers
 const pageRoute = require("./routes/pageRoute.js");

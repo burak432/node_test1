@@ -16,8 +16,8 @@ exports.newProduct = async (req, res) => {
 
 exports.showProduct = async (req, res) => {
   try {
-    const id = req.params.id;
-    const showProduct = await Product.findById(id);
+    const slug = req.params.slug;
+    const showProduct = await Product.findOne({slug});
     res
       .status(200)
       .render("showProduct.ejs", { pageName: "products", showProduct });
